@@ -1,0 +1,10 @@
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\bin\Debug\NvidiaCP-IHC.exe.config
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\bin\Debug\NvidiaCP-IHC.exe
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\bin\Debug\NvidiaCP-IHC.pdb
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.csproj.AssemblyReference.cache
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\obj\Debug\NvidiaCP_IHC.Form1.resources
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\obj\Debug\NvidiaCP_IHC.Properties.Resources.resources
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.csproj.GenerateResource.cache
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.csproj.CoreCompileInputs.cache
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.exe
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.pdb

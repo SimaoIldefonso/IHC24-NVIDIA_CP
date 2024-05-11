@@ -105,5 +105,8 @@
   <ItemGroup>
     <None Include="Resources\monitor_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NVIDIA_LOGO.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

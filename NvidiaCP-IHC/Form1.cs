@@ -37,6 +37,18 @@ namespace NvidiaCP_IHC
             label9.TextAlign = ContentAlignment.MiddleCenter;
 
             label10.ForeColor = Color.FromArgb(235, 235, 235);
+            label22.ForeColor = Color.FromArgb(235, 235, 235);
+            label23.ForeColor = Color.FromArgb(235, 235, 235);
+            label24.ForeColor = Color.FromArgb(235, 235, 235);
+            label25.ForeColor = Color.FromArgb(235, 235, 235);
+
+            label26.ForeColor = Color.FromArgb(235, 235, 235);
+            label27.ForeColor = Color.FromArgb(235, 235, 235);
+            label28.ForeColor = Color.FromArgb(235, 235, 235);
+            label29.ForeColor = Color.FromArgb(235, 235, 235);
+            label30.ForeColor = Color.FromArgb(235, 235, 235);
+            label31.ForeColor = Color.FromArgb(235, 235, 235);
+            label32.ForeColor = Color.FromArgb(235, 235, 235);
 
             label11.BackColor = Color.FromArgb(94, 140, 12);
             label12.BackColor = Color.FromArgb(94, 140, 12);
@@ -44,13 +56,62 @@ namespace NvidiaCP_IHC
             label14.BackColor = Color.FromArgb(94, 140, 12);
 
             comboBox1.SelectedIndex = 1;
-            // mudar cor da string
             comboBox1.BackColor = Color.FromArgb(45, 45, 45);
             comboBox1.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox2.SelectedIndex = 0;
+            comboBox2.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox2.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox3.SelectedIndex = 0;
+            comboBox3.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox3.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox4.Items.Add("Auto-Select");
+            comboBox4.SelectedIndex = 0;
+            comboBox4.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox4.ForeColor = Color.FromArgb(235, 235, 235);
+
+            ManagementObjectSearcher searcher3 = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+            foreach (ManagementObject share in searcher2.Get())
+            {
+                comboBox4.Items.Add(share["Name"].ToString());
+            }
+
+            comboBox5.SelectedIndex = 0;
+            comboBox5.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox5.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox6.SelectedIndex = 0;
+            comboBox6.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox6.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox7.SelectedIndex = 0;
+            comboBox7.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox7.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox8.SelectedIndex = 1;
+            comboBox8.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox8.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox9.SelectedIndex = 0;
+            comboBox9.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox9.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox10.SelectedIndex = 6;
+            comboBox10.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox10.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox11.SelectedIndex = 2;
+            comboBox11.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox11.ForeColor = Color.FromArgb(235, 235, 235);
 
             label19.ForeColor = Color.FromArgb(235, 235, 235);
             label20.ForeColor = Color.FromArgb(235, 235, 235);
             label21.ForeColor = Color.FromArgb(235, 235, 235);
+
+            tabPage1.BackColor = Color.FromArgb(28, 28, 28);
+            tabPage2.BackColor = Color.FromArgb(28, 28, 28);
 
             specs_label.ForeColor = Color.FromArgb(235, 235, 235);
 
@@ -303,6 +364,53 @@ namespace NvidiaCP_IHC
             label16.BackColor = Color.FromArgb(94, 140, 12);
             label17.BackColor = Color.FromArgb(94, 140, 12);
             label18.BackColor = Color.FromArgb(94, 140, 12);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to restore default values?", "Apply Settings", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                comboBox1.SelectedIndex = 1;
+                comboBox2.SelectedIndex = 0;
+                comboBox3.SelectedIndex = 0;
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                // do nothing
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to apply settings?", "Apply Settings", MessageBoxButtons.YesNo);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to restore default values?", "Apply Settings", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                comboBox4.SelectedIndex = 0;
+                comboBox5.SelectedIndex = 0;
+                comboBox6.SelectedIndex = 0;
+                comboBox7.SelectedIndex = 0;
+                comboBox8.SelectedIndex = 1;
+                comboBox9.SelectedIndex = 0;
+                comboBox10.SelectedIndex = 6;
+                comboBox11.SelectedIndex = 2;
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                // do nothing
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to apply settings?", "Apply Settings", MessageBoxButtons.YesNo);
         }
     }
 }

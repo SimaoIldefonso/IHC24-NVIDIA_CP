@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Management;
+using System.Drawing.Drawing2D;
 
 namespace NvidiaCP_IHC
 {
@@ -146,6 +147,14 @@ namespace NvidiaCP_IHC
                 tab.BackColor = Color.FromArgb(28, 28, 28);
                 tab.BorderStyle = BorderStyle.None;
             }
+            //apply está em elipse
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(new Rectangle(0, 0, button4.Width, button4.Height));
+            button4.Region = new Region(gp);
+
+            /////////////////////////////////////////
+
+
         }
 
         // COLORING TABS //
@@ -389,7 +398,7 @@ namespace NvidiaCP_IHC
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to restore default values?", "Apply Settings", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to restore default values?", "Restore default values", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {

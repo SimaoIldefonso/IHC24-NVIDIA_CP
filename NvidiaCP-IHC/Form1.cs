@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Management;
-using System.Drawing.Drawing2D;
+//using System.Drawing.Drawing2D;
 
 namespace NvidiaCP_IHC
 {
@@ -50,6 +50,15 @@ namespace NvidiaCP_IHC
             label30.ForeColor = Color.FromArgb(235, 235, 235);
             label31.ForeColor = Color.FromArgb(235, 235, 235);
             label32.ForeColor = Color.FromArgb(235, 235, 235);
+            label33.ForeColor = Color.FromArgb(235, 235, 235);
+            label34.ForeColor = Color.FromArgb(235, 235, 235);
+            label35.ForeColor = Color.FromArgb(235, 235, 235);
+            label36.ForeColor = Color.FromArgb(235, 235, 235);
+            label37.ForeColor = Color.FromArgb(235, 235, 235);
+            label38.ForeColor = Color.FromArgb(235, 235, 235);
+            label39.ForeColor = Color.FromArgb(235, 235, 235);
+            label40.ForeColor = Color.FromArgb(235, 235, 235);
+            label41.ForeColor = Color.FromArgb(235, 235, 235);
 
             label11.BackColor = Color.FromArgb(94, 140, 12);
             label12.BackColor = Color.FromArgb(94, 140, 12);
@@ -107,6 +116,40 @@ namespace NvidiaCP_IHC
             comboBox11.BackColor = Color.FromArgb(45, 45, 45);
             comboBox11.ForeColor = Color.FromArgb(235, 235, 235);
 
+            // Program Selection
+            comboBox12.SelectedIndex = 0;
+            comboBox12.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox12.ForeColor = Color.FromArgb(235, 235, 235);
+            //
+
+            comboBox13.SelectedIndex = 0;
+            comboBox13.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox13.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox14.SelectedIndex = 0;
+            comboBox14.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox14.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox15.SelectedIndex = 0;
+            comboBox15.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox15.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox16.SelectedIndex = 1;
+            comboBox16.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox16.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox17.SelectedIndex = 0;
+            comboBox17.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox17.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox18.SelectedIndex = 6;
+            comboBox18.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox18.ForeColor = Color.FromArgb(235, 235, 235);
+
+            comboBox19.SelectedIndex = 2;
+            comboBox19.BackColor = Color.FromArgb(45, 45, 45);
+            comboBox19.ForeColor = Color.FromArgb(235, 235, 235);
+
             label19.ForeColor = Color.FromArgb(235, 235, 235);
             label20.ForeColor = Color.FromArgb(235, 235, 235);
             label21.ForeColor = Color.FromArgb(235, 235, 235);
@@ -148,9 +191,9 @@ namespace NvidiaCP_IHC
                 tab.BorderStyle = BorderStyle.None;
             }
             //apply está em elipse
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(new Rectangle(0, 0, button4.Width, button4.Height));
-            button4.Region = new Region(gp);
+            //GraphicsPath gp = new GraphicsPath();
+            //gp.AddEllipse(new Rectangle(0, 0, button4.Width, button4.Height));
+            //button4.Region = new Region(gp);
 
             /////////////////////////////////////////
 
@@ -420,6 +463,33 @@ namespace NvidiaCP_IHC
         private void button4_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to apply settings?", "Apply Settings", MessageBoxButtons.YesNo);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (comboBox12.SelectedIndex != 0)
+            {
+                comboBox12.Items.RemoveAt(comboBox12.SelectedIndex);
+                comboBox12.SelectedIndex = 0;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Programs|*.exe|All Files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.Multiselect = false;
+
+            DialogResult result = openFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string selectedFilePath = openFileDialog1.FileName;
+                string programName = System.IO.Path.GetFileNameWithoutExtension(selectedFilePath);
+                comboBox12.Items.Add(programName);
+                comboBox12.SelectedIndex = comboBox12.Items.Count - 1;
+            }
         }
     }
 }

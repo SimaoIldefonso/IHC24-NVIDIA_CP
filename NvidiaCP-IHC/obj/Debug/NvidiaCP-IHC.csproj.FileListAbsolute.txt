@@ -28,3 +28,7 @@ D:\UNI3\IHC\Pratica\NVIDIA_CP\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.csproj.Generat
 D:\UNI3\IHC\Pratica\NVIDIA_CP\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.csproj.CoreCompileInputs.cache
 D:\UNI3\IHC\Pratica\NVIDIA_CP\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.exe
 D:\UNI3\IHC\Pratica\NVIDIA_CP\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.pdb
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC24-NVIDIA_CP\NvidiaCP-IHC\bin\Debug\NvidiaCP-IHC.exe.manifest
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC24-NVIDIA_CP\NvidiaCP-IHC\bin\Debug\NvidiaCP-IHC.application
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC24-NVIDIA_CP\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.exe.manifest
+C:\Users\dpedr\OneDrive\Ambiente de Trabalho\IHC24-NVIDIA_CP\NvidiaCP-IHC\obj\Debug\NvidiaCP-IHC.application

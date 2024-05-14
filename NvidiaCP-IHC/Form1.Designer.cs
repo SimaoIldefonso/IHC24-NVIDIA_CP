@@ -131,6 +131,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.settings_tab = new System.Windows.Forms.TabPage();
+            this.label42 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -712,6 +713,7 @@
             this.tableLayoutPanel10.Controls.Add(this.comboBox2, 0, 3);
             this.tableLayoutPanel10.Controls.Add(this.comboBox3, 2, 1);
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 3, 3);
+            this.tableLayoutPanel10.Controls.Add(this.label42, 2, 2);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(23, 397);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -973,7 +975,7 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(3, 63);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(243, 24);
+            this.comboBox4.Size = new System.Drawing.Size(335, 24);
             this.comboBox4.TabIndex = 1;
             // 
             // label24
@@ -1575,6 +1577,19 @@
             this.settings_tab.Text = "settings";
             this.settings_tab.UseVisualStyleBackColor = true;
             // 
+            // label42
+            // 
+            this.label42.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label42.AutoSize = true;
+            this.label42.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label42.Font = new System.Drawing.Font("Poppins Medium", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(482, 150);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(190, 36);
+            this.label42.TabIndex = 9;
+            this.label42.Text = "Also See: Max FPS";
+            this.label42.Click += new System.EventHandler(this.label42_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1744,6 +1759,7 @@
         private System.Windows.Forms.ComboBox comboBox19;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label42;
     }
 }
 

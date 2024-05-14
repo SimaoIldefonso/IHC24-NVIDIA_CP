@@ -1,0 +1,15 @@
+Multiple Display, em vez de só "Display".
+
+O painel das settings nas graphic settings não parece muito coerente com uma aplicação normal mas parece uma web aplication.
+
+Organizar os ecrãs para não parecer que as settings são para 1 ecrã e outras para outro. centrar o display selecionado com titulo.
+
+Botão de FPS no display mudar para o global settings não para o program settings.
+Bloco de notas para diferenciar FPS com Refresh Rate.
+
+
+Na parte do program settings, opção para benchmark com novas definições.
+
+Ecrã não muda para portrait mode. deixa o user a ponderar se aplicou a definição.
+
+Quando selecionar o nome de uma definição, o texto na direita deve mudar com junto. Hover na secção tb pode ser melhor.

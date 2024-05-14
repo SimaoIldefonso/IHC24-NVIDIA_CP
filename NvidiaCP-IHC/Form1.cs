@@ -59,6 +59,7 @@ namespace NvidiaCP_IHC
             label39.ForeColor = Color.FromArgb(235, 235, 235);
             label40.ForeColor = Color.FromArgb(235, 235, 235);
             label41.ForeColor = Color.FromArgb(235, 235, 235);
+            label42.ForeColor = Color.FromArgb(235, 235, 235);
 
             label11.BackColor = Color.FromArgb(94, 140, 12);
             label12.BackColor = Color.FromArgb(94, 140, 12);
@@ -490,6 +491,12 @@ namespace NvidiaCP_IHC
                 comboBox12.Items.Add(programName);
                 comboBox12.SelectedIndex = comboBox12.Items.Count - 1;
             }
+        }
+
+        private void label42_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectTab(graph_tab);
+            comboBox8.Select();
         }
     }
 }

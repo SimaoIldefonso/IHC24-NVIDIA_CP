@@ -791,7 +791,7 @@ namespace NvidiaCP_IHC
                     pictureBox5.Image = Properties.Resources.monitor_11;
                 } else if (comboBox2.SelectedIndex == 1)
                 {
-                    pictureBox5.Image = Properties.Resources.portrait1;
+                    pictureBox5.Image = Properties.Resources.good_portrait1;
                 }
             }
             else if (current_screen == 2)
@@ -804,7 +804,7 @@ namespace NvidiaCP_IHC
                 }
                 else if (comboBox2.SelectedIndex == 1)
                 {
-                    pictureBox6.Image = Properties.Resources.portrait2;
+                    pictureBox6.Image = Properties.Resources.good_portrait2;
                 }
             }
 

@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Management;
+using System.Threading.Tasks;
+using System.Drawing.Text;
 //using System.Drawing.Drawing2D;
 
 namespace NvidiaCP_IHC
@@ -42,10 +44,10 @@ namespace NvidiaCP_IHC
             label23.ForeColor = Color.FromArgb(235, 235, 235);
             label24.ForeColor = Color.FromArgb(235, 235, 235);
             label25.ForeColor = Color.FromArgb(235, 235, 235);
-
             label26.ForeColor = Color.FromArgb(235, 235, 235);
             label27.ForeColor = Color.FromArgb(235, 235, 235);
             label28.ForeColor = Color.FromArgb(235, 235, 235);
+            label28.BackColor = Color.FromArgb(28, 28, 28);
             label29.ForeColor = Color.FromArgb(235, 235, 235);
             label30.ForeColor = Color.FromArgb(235, 235, 235);
             label31.ForeColor = Color.FromArgb(235, 235, 235);
@@ -60,6 +62,8 @@ namespace NvidiaCP_IHC
             label40.ForeColor = Color.FromArgb(235, 235, 235);
             label41.ForeColor = Color.FromArgb(235, 235, 235);
             label42.ForeColor = Color.FromArgb(235, 235, 235);
+            label43.ForeColor = Color.FromArgb(235, 235, 235);
+            label44.ForeColor = Color.FromArgb(235, 235, 235);
 
             label11.BackColor = Color.FromArgb(94, 140, 12);
             label12.BackColor = Color.FromArgb(94, 140, 12);
@@ -198,7 +202,7 @@ namespace NvidiaCP_IHC
 
             /////////////////////////////////////////
 
-
+            needs_apply = false;
         }
 
         // COLORING TABS //
@@ -319,8 +323,6 @@ namespace NvidiaCP_IHC
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectTab(home_tab);
-
             label5.BackColor = Color.FromArgb(118, 185, 0);
             label5.Text = "";
 
@@ -332,6 +334,43 @@ namespace NvidiaCP_IHC
 
             label8.BackColor = Color.FromArgb(28, 28, 28);
             label8.Text = "";
+
+            if (needs_apply)
+            {
+                DialogResult dialogResult = MessageBox.Show("You have unsaved changes.\nDo you want to apply them?", "Apply Settings", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // apply settings
+                    needs_apply = false;
+
+                    mon1_orient_buffer = mon1_orient;
+                    mon1_res_buffer = mon1_res;
+                    mon1_refresh_buffer = mon1_refresh;
+
+                    mon2_orient_buffer = mon2_orient;
+                    mon2_res_buffer = mon2_res;
+                    mon2_refresh_buffer = mon2_refresh;
+
+                    tabControl1.SelectTab(home_tab);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    needs_apply = false;
+
+                    mon1_orient = mon1_orient_buffer;
+                    mon1_res = mon1_res_buffer;
+                    mon1_refresh = mon1_refresh_buffer;
+
+                    mon2_orient = mon2_orient_buffer;
+                    mon2_res = mon2_res_buffer;
+                    mon2_refresh = mon2_refresh_buffer;
+
+                    tabControl1.SelectTab(home_tab);
+                }
+            } else
+            {
+                tabControl1.SelectTab(home_tab);
+            }
 
         }
 
@@ -350,12 +389,25 @@ namespace NvidiaCP_IHC
 
             label8.BackColor = Color.FromArgb(28, 28, 28);
             label8.Text = "";
+
+            if (current_screen == 1)
+            {
+                comboBox1.SelectedIndex = mon1_res_buffer;
+                comboBox2.SelectedIndex = mon1_orient_buffer;
+                comboBox3.SelectedIndex = mon1_refresh_buffer;
+            }
+            else if (current_screen == 2)
+            {
+                comboBox1.SelectedIndex = mon2_res_buffer;
+                comboBox2.SelectedIndex = mon2_orient_buffer;
+                comboBox3.SelectedIndex = mon2_refresh_buffer;
+            }
+
+            needs_apply = false;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectTab(graph_tab);
-
             label5.BackColor = Color.FromArgb(28, 28, 28);
             label5.Text = "";
 
@@ -367,12 +419,47 @@ namespace NvidiaCP_IHC
 
             label8.BackColor = Color.FromArgb(28, 28, 28);
             label8.Text = "";
+
+            if (needs_apply)
+            {
+                DialogResult dialogResult = MessageBox.Show("You have unsaved changes.\nDo you want to apply them?", "Apply Settings", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // apply settings
+                    needs_apply = false;
+
+                    mon1_orient_buffer = mon1_orient;
+                    mon1_res_buffer = mon1_res;
+                    mon1_refresh_buffer = mon1_refresh;
+
+                    mon2_orient_buffer = mon2_orient;
+                    mon2_res_buffer = mon2_res;
+                    mon2_refresh_buffer = mon2_refresh;
+
+                    tabControl1.SelectTab(graph_tab);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    needs_apply = false;
+
+                    mon1_orient = mon1_orient_buffer;
+                    mon1_res = mon1_res_buffer;
+                    mon1_refresh = mon1_refresh_buffer;
+
+                    mon2_orient = mon2_orient_buffer;
+                    mon2_res = mon2_res_buffer;
+                    mon2_refresh = mon2_refresh_buffer;
+
+                    tabControl1.SelectTab(graph_tab);
+                }
+            } else
+            {
+                tabControl1.SelectTab(graph_tab);
+            }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectTab(settings_tab);
-
             label5.BackColor = Color.FromArgb(28, 28, 28);
             label5.Text = "";
 
@@ -384,12 +471,77 @@ namespace NvidiaCP_IHC
 
             label8.BackColor = Color.FromArgb(118, 185, 0); 
             label8.Text = "";
+
+            if (needs_apply)
+            {
+                DialogResult dialogResult = MessageBox.Show("You have unsaved changes.\nDo you want to apply them?", "Apply Settings", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // apply settings
+                    needs_apply = false;
+
+                    mon1_orient_buffer = mon1_orient;
+                    mon1_res_buffer = mon1_res;
+                    mon1_refresh_buffer = mon1_refresh;
+
+                    mon2_orient_buffer = mon2_orient;
+                    mon2_res_buffer = mon2_res;
+                    mon2_refresh_buffer = mon2_refresh;
+
+                    tabControl1.SelectTab(settings_tab);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    needs_apply = false;
+
+                    mon1_orient = mon1_orient_buffer;
+                    mon1_res = mon1_res_buffer;
+                    mon1_refresh = mon1_refresh_buffer;
+
+                    mon2_orient = mon2_orient_buffer;
+                    mon2_res = mon2_res_buffer;
+                    mon2_refresh = mon2_refresh_buffer;
+
+                    tabControl1.SelectTab(settings_tab);
+                }
+            } else
+            {
+                tabControl1.SelectTab(settings_tab);
+            }
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
 
         }
+
+        int current_screen = 1;
+
+        int mon1_res = 1;
+        int mon1_res_default = 1;
+        int mon1_res_buffer = 1;
+
+        int mon2_res = 1;
+        int mon2_res_default = 1;
+        int mon2_res_buffer = 1;
+
+        int mon1_orient = 0;
+        int mon1_orient_default = 0;
+        int mon1_orient_buffer = 0;
+
+        int mon2_orient = 0;
+        int mon2_orient_default = 0;
+        int mon2_orient_buffer = 0;
+        
+        int mon1_refresh = 0;
+        int mon1_refresh_default = 0;
+        int mon1_refresh_buffer = 0;
+
+        int mon2_refresh = 0;
+        int mon2_refresh_default = 0;
+        int mon2_refresh_buffer = 0;
+
+        bool needs_apply = false;
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
@@ -404,6 +556,13 @@ namespace NvidiaCP_IHC
             label17.BackColor = Color.FromArgb(28, 28, 28);
             label18.BackColor = Color.FromArgb(28, 28, 28);
 
+            current_screen = 1;
+            label43.Text = "Monitor 1";
+
+            comboBox1.SelectedIndex = mon1_res;
+            comboBox2.SelectedIndex = mon1_orient;
+            comboBox3.SelectedIndex = mon1_refresh;
+            
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -417,17 +576,51 @@ namespace NvidiaCP_IHC
             label16.BackColor = Color.FromArgb(94, 140, 12);
             label17.BackColor = Color.FromArgb(94, 140, 12);
             label18.BackColor = Color.FromArgb(94, 140, 12);
+
+            current_screen = 2;
+            label43.Text = "Monitor 2";
+
+            comboBox1.SelectedIndex = mon2_res;
+            comboBox2.SelectedIndex = mon2_orient;
+            comboBox3.SelectedIndex = mon2_refresh;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to restore default values?", "Apply Settings", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to restore default values?", "Yes", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {
-                comboBox1.SelectedIndex = 1;
-                comboBox2.SelectedIndex = 0;
-                comboBox3.SelectedIndex = 0;
+                mon1_orient = mon1_orient_default;
+                mon1_res = mon1_res_default;
+                mon1_refresh = mon1_refresh_default;
+
+                mon2_orient = mon2_orient_default;
+                mon2_res = mon2_res_default;
+                mon2_refresh = mon2_refresh_default;
+
+                mon1_orient_buffer = mon1_orient_default;
+                mon1_res_buffer = mon1_res_default;
+                mon1_refresh_buffer = mon1_refresh_default;
+
+                mon2_orient_buffer = mon2_orient_default;
+                mon2_res_buffer = mon2_res_default;
+                mon2_refresh_buffer = mon2_refresh_default;
+
+                if (current_screen == 1)
+                {
+                    comboBox1.SelectedIndex = mon1_res;
+                    comboBox2.SelectedIndex = mon1_orient;
+                    comboBox3.SelectedIndex = mon1_refresh;
+                }
+                else if (current_screen == 2)
+                {
+                    comboBox1.SelectedIndex = mon2_res;
+                    comboBox2.SelectedIndex = mon2_orient;
+                    comboBox3.SelectedIndex = mon2_refresh;
+                }
+
+                needs_apply = false;
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -438,6 +631,25 @@ namespace NvidiaCP_IHC
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to apply settings?", "Apply Settings", MessageBoxButtons.YesNo);
+            
+            if (dialogResult == DialogResult.Yes)
+            {
+                // apply settings
+                needs_apply = false;
+
+                mon1_orient_buffer = mon1_orient;
+                mon1_res_buffer = mon1_res;
+                mon1_refresh_buffer = mon1_refresh;
+
+                mon2_orient_buffer = mon2_orient;
+                mon2_res_buffer = mon2_res;
+                mon2_refresh_buffer = mon2_refresh;
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                // do nothing
+            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -493,10 +705,185 @@ namespace NvidiaCP_IHC
             }
         }
 
-        private void label42_Click(object sender, EventArgs e)
+        private async void label42_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectTab(graph_tab);
+            tabControl2.SelectTab(tabPage1);
             comboBox8.Select();
+
+            label5.BackColor = Color.FromArgb(28, 28, 28);
+            label5.Text = "";
+
+            label6.BackColor = Color.FromArgb(28, 28, 28);
+            label6.Text = "";
+
+            label7.BackColor = Color.FromArgb(118, 185, 0);
+            label7.Text = "";
+
+            label8.BackColor = Color.FromArgb(28, 28, 28);
+            label8.Text = "";
+
+            if (needs_apply)
+            {
+                DialogResult dialogResult = MessageBox.Show("You have unsaved changes.\nDo you want to apply them?", "Apply Settings", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // apply settings
+                    needs_apply = false;
+
+                    mon1_orient_buffer = mon1_orient;
+                    mon1_res_buffer = mon1_res;
+                    mon1_refresh_buffer = mon1_refresh;
+
+                    mon2_orient_buffer = mon2_orient;
+                    mon2_res_buffer = mon2_res;
+                    mon2_refresh_buffer = mon2_refresh;
+
+                    tabControl1.SelectTab(graph_tab);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    needs_apply = false;
+
+                    mon1_orient = mon1_orient_buffer;
+                    mon1_res = mon1_res_buffer;
+                    mon1_refresh = mon1_refresh_buffer;
+
+                    mon2_orient = mon2_orient_buffer;
+                    mon2_res = mon2_res_buffer;
+                    mon2_refresh = mon2_refresh_buffer;
+
+                    tabControl1.SelectTab(graph_tab);
+                }
+            }
+            else
+            {
+                tabControl1.SelectTab(graph_tab);
+            }
+
+            Color label28_forecolor = Color.FromArgb(235, 235, 235);
+            Color label28_backcolor = Color.FromArgb(28, 28, 28);
+
+            Color label28_invert_fore = Color.FromArgb(28, 28, 28);
+            Color label28_invert_back = Color.FromArgb(235, 235, 235);
+
+            label28.ForeColor = label28_invert_fore;
+            label28.BackColor = label28_invert_back;
+
+            for (int i = 0; i < 20; i++)
+            {
+                await Task.Delay(50);
+                label28.ForeColor = Color.FromArgb(label28_invert_fore.R + (label28_forecolor.R - label28_invert_fore.R) * i / 20, label28_invert_fore.G + (label28_forecolor.G - label28_invert_fore.G) * i / 20, label28_invert_fore.B + (label28_forecolor.B - label28_invert_fore.B) * i / 20);
+                label28.BackColor = Color.FromArgb(label28_invert_back.R + (label28_backcolor.R - label28_invert_back.R) * i / 20, label28_invert_back.G + (label28_backcolor.G - label28_invert_back.G) * i / 20, label28_invert_back.B + (label28_backcolor.B - label28_invert_back.B) * i / 20);
+            }
+
+            label28.ForeColor = label28_forecolor;
+            label28.BackColor = label28_backcolor;
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (current_screen == 1)
+            {
+                mon1_orient = comboBox2.SelectedIndex;
+                
+                if (comboBox2.SelectedIndex == 0)
+                {
+                    pictureBox5.Image = Properties.Resources.monitor_11;
+                } else if (comboBox2.SelectedIndex == 1)
+                {
+                    pictureBox5.Image = Properties.Resources.portrait1;
+                }
+            }
+            else if (current_screen == 2)
+            {
+                mon2_orient = comboBox2.SelectedIndex;
+
+                if (comboBox2.SelectedIndex == 0)
+                {
+                    pictureBox6.Image = Properties.Resources.monitor_2;
+                }
+                else if (comboBox2.SelectedIndex == 1)
+                {
+                    pictureBox6.Image = Properties.Resources.portrait2;
+                }
+            }
+
+            needs_apply = true;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (current_screen == 1)
+            {
+                mon1_res = comboBox1.SelectedIndex;
+            }
+            else if (current_screen == 2)
+            {
+                mon2_res = comboBox1.SelectedIndex;
+            }
+
+            needs_apply = true;
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (current_screen == 1)
+            {
+                mon1_refresh = comboBox3.SelectedIndex;
+            }
+            else if (current_screen == 2)
+            {
+                mon2_refresh = comboBox3.SelectedIndex;
+            }
+
+            needs_apply = true;
+        }
+
+        private void ambient_hover(object sender, EventArgs e)
+        {
+            label44.Text = "Ambient Occlusion";
+            label25.Text = "Ambient occlusion adds realism to scenes by reducing the intensity of ambient light on surfaces blocked by surrounding objects. It enhances depth perception by providing a soft shadow effect for objects based on their placement in the scene. This feature is not supported for all applications; refer to Program Settings to view per-application support. NVIDIA's Screen Space Ambient Occlusion algorithm is not compatible with DX12 games.";
+        }
+
+        private void fxaa_hover(object sender, EventArgs e)
+        {
+            label44.Text = "Antialising - FXAA:";
+            label25.Text = "FXAA is a fast shader-based post-processing technique that can be applied to any program, including those which do not support other forms of hardware-based antialiasing. FXAA can be used in conjunction with other antialiasing settings to improve overall image quality. Note that enabling this setting globally may affect all programs rendered on the GPU, including video players and the Windows desktop.";
+        }
+
+        private void scaling_hover(object sender, EventArgs e)
+        {
+            label44.Text = "Image Scaling";
+            label25.Text = "FXAA is a fast shader-based post-processing technique that can be applied to any program, including those which do not support other forms of hardware-based antialiasing. FXAA can be used in conjunction with other antialiasing settings to improve overall image quality. Note that enabling this setting globally may affect all programs rendered on the GPU, including video players and the Windows desktop.";
+        }
+
+        private void fps_hover(object sender, EventArgs e)
+        {
+            label44.Text = "Max FPS";
+            label25.Text = "Sets the maximum frame rate that the GPU will render a game or 3D application. Limiting the frame rate can be useful for extending battery life or reducing system latency in certain scenarios.";
+        }
+
+        private void latency_hover(object sender, EventArgs e)
+        {
+            label44.Text = "Low Latency Mode";
+            label25.Text = "The Latency control reduces latency by limiting the number of frames the CPU can prepare before the frames are processed by the GPU.";
+        }
+
+        private void cache_hover(object sender, EventArgs e)
+        {
+            label44.Text = "Shader Cache Size";
+            label25.Text = "Controls the maximum amount of disk space the driver may use for storing shader compiles.";
+        }
+
+        private void vsync_hover(object sender, EventArgs e)
+        {
+            label44.Text = "Vertical Sync";
+            label25.Text = "Vertical sync is a collection of settings that control how the GPU render rate interfaces to the refresh rate of a monitor. This setting is applicable only when a display is connected to NVIDIA GPU.";
+        }
+
+        private void comboBox12_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label34.Text = "Settings: " + comboBox12.SelectedItem.ToString();
         }
     }
 }

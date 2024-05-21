@@ -562,7 +562,15 @@ namespace NvidiaCP_IHC
             comboBox1.SelectedIndex = mon1_res;
             comboBox2.SelectedIndex = mon1_orient;
             comboBox3.SelectedIndex = mon1_refresh;
-            
+
+            if (mon1_orient != mon1_orient_buffer || mon1_res != mon1_res_buffer || mon1_refresh != mon1_refresh_buffer)
+            {
+                needs_apply = true;
+            } else
+            {
+                needs_apply = false;
+            }
+
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -583,6 +591,15 @@ namespace NvidiaCP_IHC
             comboBox1.SelectedIndex = mon2_res;
             comboBox2.SelectedIndex = mon2_orient;
             comboBox3.SelectedIndex = mon2_refresh;
+
+            if (mon2_orient != mon2_orient_buffer || mon2_res != mon2_res_buffer || mon2_refresh != mon2_refresh_buffer)
+            {
+                needs_apply = true;
+            } else
+            {
+                needs_apply = false;
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)

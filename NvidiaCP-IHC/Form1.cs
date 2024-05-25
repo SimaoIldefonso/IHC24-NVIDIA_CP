@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using System.Management;
 using System.Threading.Tasks;
 using System.Drawing.Text;
+using NvidiaCP_IHC.Properties;
+using System.Collections.Generic;
 //using System.Drawing.Drawing2D;
 
 namespace NvidiaCP_IHC
@@ -64,6 +66,8 @@ namespace NvidiaCP_IHC
             label42.ForeColor = Color.FromArgb(235, 235, 235);
             label43.ForeColor = Color.FromArgb(235, 235, 235);
             label44.ForeColor = Color.FromArgb(235, 235, 235);
+            label45.ForeColor = Color.FromArgb(235, 235, 235);
+            label46.ForeColor = Color.FromArgb(235, 235, 235);
 
             label11.BackColor = Color.FromArgb(94, 140, 12);
             label12.BackColor = Color.FromArgb(94, 140, 12);
@@ -860,42 +864,56 @@ namespace NvidiaCP_IHC
         {
             label44.Text = "Ambient Occlusion";
             label25.Text = "Ambient occlusion adds realism to scenes by reducing the intensity of ambient light on surfaces blocked by surrounding objects. It enhances depth perception by providing a soft shadow effect for objects based on their placement in the scene. This feature is not supported for all applications; refer to Program Settings to view per-application support. NVIDIA's Screen Space Ambient Occlusion algorithm is not compatible with DX12 games.";
+            label46.Text = "Usage";
+            label45.Text = "Quality provides a more pronounced increase in realism, though you may experience a decrease in graphics performace. \nPerformance increases realism with less impact on graphics performance.";
         }
 
         private void fxaa_hover(object sender, EventArgs e)
         {
             label44.Text = "Antialising - FXAA:";
             label25.Text = "FXAA is a fast shader-based post-processing technique that can be applied to any program, including those which do not support other forms of hardware-based antialiasing. FXAA can be used in conjunction with other antialiasing settings to improve overall image quality. Note that enabling this setting globally may affect all programs rendered on the GPU, including video players and the Windows desktop.";
+            label46.Text = "Usage";
+            label45.Text = "Turn FXAA on to improve image quality with a lesser performance impact than other antialiasing settings. \nTurn FXAA off if you notice artifacs or dithering around t he edges of objects, particularly around text.";
         }
 
         private void scaling_hover(object sender, EventArgs e)
         {
             label44.Text = "Image Scaling";
             label25.Text = "FXAA is a fast shader-based post-processing technique that can be applied to any program, including those which do not support other forms of hardware-based antialiasing. FXAA can be used in conjunction with other antialiasing settings to improve overall image quality. Note that enabling this setting globally may affect all programs rendered on the GPU, including video players and the Windows desktop.";
+            label46.Text = "Usage";
+            label45.Text = "Turn Image Scaling on to boost frames rates of your application. \nUse Sharpen to adjust the level of sharpness. \nUse Overlay Indicator to show if feature is enable for your application or properly captured in screeshots or videos";
         }
 
         private void fps_hover(object sender, EventArgs e)
         {
             label44.Text = "Max FPS";
             label25.Text = "Sets the maximum frame rate that the GPU will render a game or 3D application. Limiting the frame rate can be useful for extending battery life or reducing system latency in certain scenarios.";
+            label46.Text = "Usage";
+            label45.Text = "This setting is oftern enabled when users are trying to conserve power or limit the frames per second slightly below the refresh rate of ther G - SYNC display.";
         }
 
         private void latency_hover(object sender, EventArgs e)
         {
             label44.Text = "Low Latency Mode";
             label25.Text = "The Latency control reduces latency by limiting the number of frames the CPU can prepare before the frames are processed by the GPU.";
+            label46.Text = "Usage";
+            label45.Text = "Select OFF to prioritise render throughtput by allowing games to queue frames. \nSelect On to prioritise latency by limiting queued frames to 1. \nSelect Ultra to prioritise latency by fully minimising queued frams. In addition, this mode minimises VSYNC latency when both VSYNC and G-SYNC are enabled.";
         }
 
         private void cache_hover(object sender, EventArgs e)
         {
             label44.Text = "Shader Cache Size";
             label25.Text = "Controls the maximum amount of disk space the driver may use for storing shader compiles.";
+            label46.Text = "Usage";
+            label45.Text = "Shader compilation for applications can be skipped if the result of that compile can be found in the cache. This will reduce stuttering and startup time of applications.";
         }
 
         private void vsync_hover(object sender, EventArgs e)
         {
             label44.Text = "Vertical Sync";
             label25.Text = "Vertical sync is a collection of settings that control how the GPU render rate interfaces to the refresh rate of a monitor. This setting is applicable only when a display is connected to NVIDIA GPU.";
+            label46.Text = "Usage";
+            label45.Text = "Default 3D settings for your applications.";
         }
 
         private void comboBox12_SelectedIndexChanged(object sender, EventArgs e)

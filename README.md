@@ -13,3 +13,7 @@ Este repositório contém o projeto desenvolvido para a disciplina de Interaçã
 - Daniel Pedrinho - 107378
 - Simão Ildefonso - 107997
 - Tomás Laranjo - 107542
+
+## Repositório
+Encontra-se disponível os conteúdos deste projeto no seguinte link:
+[Repositório GitHub](https://github.com/SimaoIldefonso/IHC24-NVIDIA_CP)

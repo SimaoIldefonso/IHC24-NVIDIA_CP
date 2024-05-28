@@ -879,7 +879,7 @@ namespace NvidiaCP_IHC
         private void scaling_hover(object sender, EventArgs e)
         {
             label44.Text = "Image Scaling";
-            label25.Text = "FXAA is a fast shader-based post-processing technique that can be applied to any program, including those which do not support other forms of hardware-based antialiasing. FXAA can be used in conjunction with other antialiasing settings to improve overall image quality. Note that enabling this setting globally may affect all programs rendered on the GPU, including video players and the Windows desktop.";
+            label25.Text = "This feature enables GPU scaling and sharpening for your application.";
             label46.Text = "Usage";
             label45.Text = "Turn Image Scaling on to boost frames rates of your application. \nUse Sharpen to adjust the level of sharpness. \nUse Overlay Indicator to show if feature is enable for your application or properly captured in screeshots or videos";
         }
